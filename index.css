@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary:#0B3D91;
+  --primary-dark:#082f70;
+  --accent:#EAB308;
+  --accent-dark:#ca9a08;
+  --bg:#FFFFFF;
+  --bg-soft:#F8FAFC;
+  --ink:#0F172A;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --whatsapp:#25D366;
+  --shadow:0 10px 30px rgba(11,61,145,0.08), 0 2px 8px rgba(15,23,42,0.04);
+  --shadow-lg:0 20px 50px rgba(11,61,145,0.12), 0 8px 20px rgba(15,23,42,0.06);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#F8FAFC;
+    --ink:#0F172A;
+  }
+}
+
+*{scroll-behavior:smooth}
+html{scroll-padding-top:84px}
+body{
+  font-family:'Inter', system-ui, -apple-system, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Poppins', sans-serif; letter-spacing:-0.02em}
+.poppins{font-family:'Poppins', sans-serif}
+
+.hero-title{
+  font-family:'Poppins', sans-serif;
+  font-weight:800;
+  line-height:0.95;
+  letter-spacing:-0.04em;
+  font-size:clamp(32px, 6vw, 56px);
+}
+.section-title{
+  font-family:'Poppins', sans-serif;
+  font-weight:700;
+  font-size:clamp(28px, 4.2vw, 42px);
+  line-height:1.05;
+  letter-spacing:-0.03em;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+.btn-primary{
+  background:var(--accent);
+  color:#0F172A;
+  font-family:'Poppins', sans-serif;
+  font-weight:700;
+  border-radius:999px;
+  padding:14px 28px;
+  transition:all .2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.btn-primary:hover{transform:translateY(-1px); background:var(--accent-dark); box-shadow:0 10px 20px rgba(234,179,8,.25)}
+.btn-outline{
+  background:transparent;
+  border:2px solid #fff;
+  color:#fff;
+  font-family:'Poppins', sans-serif;
+  font-weight:700;
+  border-radius:999px;
+  padding:12px 26px;
+  transition:all .2s;
+}
+.btn-outline:hover{background:#fff; color:var(--primary)}
+.badge-gold{
+  background:linear-gradient(135deg, #EAB308, #FACC15);
+  color:#0F172A;
+  font-family:'Poppins', sans-serif;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.04em;
+  padding:6px 12px;
+  border-radius:999px;
+}
+.progress-track{height:10px; background:#E2E8F0; border-radius:999px; overflow:hidden}
+.progress-fill{height:100%; background:linear-gradient(90deg, #EAB308, #F59E0B); border-radius:999px; transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+
+@keyframes pulse-green{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}
+  70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+}
+.pulse-whatsapp{animation:pulse-green 2.2s infinite}
+
+@keyframes splash-logo-pop{
+  0%{opacity:0; transform:scale(.8)}
+  55%{opacity:1; transform:scale(1.1)}
+  100%{opacity:1; transform:scale(1)}
+}
+@keyframes loadBar{
+  0%{width:0%}
+  100%{width:100%}
+}
+@keyframes splash-fade-out{
+  0%{opacity:1}
+  100%{opacity:0; visibility:hidden}
+}
+.splash-logo{animation:splash-logo-pop 1s cubic-bezier(.22,1,.36,1) both}
+.splash-load-bar{animation:loadBar 3s linear forwards}
+.splash-hidden{opacity:0 !important; visibility:hidden; transition:opacity .7s ease; pointer-events:none}
+.splash-fade-out{animation:splash-fade-out .7s ease forwards; pointer-events:none}
+
+@keyframes flotter {
+  0% { transform: rotate(-3deg) skewY(0deg); }
+  50% { transform: rotate(3deg) skewY(2deg) scale(1.03); }
+  100% { transform: rotate(-3deg) skewY(0deg); }
+}
+.flag-flotter {
+  animation: flotter 3s ease-in-out infinite;
+  transform-origin: left center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flag-flotter { animation: none; }
+}
+
+.fade-up{opacity:0; transform:translateY(18px); transition:all .7s cubic-bezier(.22,1,.36,1)}
+.fade-up.in{opacity:1; transform:translateY(0)}
+
+.pin{background:var(--primary); color:#fff; border:2px solid #fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; box-shadow:0 4px 12px rgba(11,61,145,.3)}
+.pin--on{background:var(--accent); color:#0F172A; transform:scale(1.15)}
+.map-selected{background:#EFF6FF; border-color:var(--primary)!important}
